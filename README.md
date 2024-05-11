@@ -8,7 +8,7 @@ This can then be combined with other NFTs with matching genres to make a song
 
 
 #### What is it going to be?
-The Music of Collaboration and Jam Tokens. Users can create their own music and upload to Jam Session. Collaborators can then submit samples of their own accompaniment. Users can select their favorite and mint a song. Jam tokens can be awared for submissions.
+The Music of Collaboration and Jam Tokens. Users can create their own music and upload to Jam Session. Collaborators can then submit samples of their own accompaniment. Users can select their favorite and mint a song. Jam tokens can be awarded for submissions.
 
 ---
 
