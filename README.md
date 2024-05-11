@@ -29,7 +29,11 @@ This world offers two main use cases
 Number 2 is more central in my eyes, but by combining these two ideas, we can emulate real life in a much more meaningful way, where many people will be 'tourists' enjoying the local scene while contributing 
 to people who live and breathe music every day of their lives.
 
-![inspiration](https://github.com/RafaelCaso/jam-session/blob/main/assets/img/005EntranceDoor.png?raw=true) 
+![inspiration](../blob/main/backend/assets/Metaverse.png?raw=true)
+![inspiration](../blob/main/backend/assets/JazzOutside.png?raw=true) 
+![inspiration](../blob/main/backend/assets/JazzInside.png?raw=true) 
+![inspiration](../blob/main/backend/assets/ArenaRock.png?raw=true) 
+
 
 #### Challenges:
 Storage - Storing audio is obviously an issue. My solution was to use IPFS and I started with 2-bar phrases which is very limiting in what you can accomplish musically.
