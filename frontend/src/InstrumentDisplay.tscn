@@ -1,0 +1,159 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/img/005GuitarHolder.png" type="Texture" id=1]
+[ext_resource path="res://src/InstrumentDisplay.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/00MetalGuitar.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/screen.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/Akira Expanded Demo.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/img/illustration (7).png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 300, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 225, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 150, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 75, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 75, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 150, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 225, 0, 75, 40 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 300, 0, 75, 40 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "close",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "open",
+"speed": 15.0
+} ]
+
+[sub_resource type="DynamicFont" id=12]
+size = 52
+font_data = ExtResource( 5 )
+
+[node name="InstrumentDisplay" type="AnimatedSprite"]
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+frames = SubResource( 11 )
+animation = "open"
+script = ExtResource( 2 )
+
+[node name="InstrumentSprite" type="Sprite" parent="."]
+position = Vector2( 6, 200 )
+scale = Vector2( 2, 2 )
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -110.0
+margin_top = -72.0
+margin_right = 114.0
+margin_bottom = 474.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="DisplayBG" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="closeBtn" type="TextureButton" parent="DisplayBG"]
+margin_left = -384.0
+margin_top = -156.0
+margin_right = 385.0
+margin_bottom = 161.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurchaseNftBtn" type="Button" parent="DisplayBG"]
+margin_left = 289.0
+margin_top = 124.0
+margin_right = 370.0
+margin_bottom = 159.0
+text = "Learn to play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProductName" type="Label" parent="DisplayBG"]
+margin_left = -374.0
+margin_top = -160.0
+margin_right = -86.0
+margin_bottom = -87.0
+custom_fonts/font = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProductData1" type="Label" parent="DisplayBG"]
+margin_left = -390.0
+margin_top = 116.0
+margin_right = -333.0
+margin_bottom = 130.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProductData2" type="Label" parent="DisplayBG"]
+margin_left = -390.0
+margin_top = 135.0
+margin_right = -333.0
+margin_bottom = 149.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProductData3" type="Label" parent="DisplayBG"]
+margin_left = -390.0
+margin_top = 154.0
+margin_right = -333.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="DisplayBG"]
+position = Vector2( 354, -125 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 6 )
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_up" from="DisplayBG/closeBtn" to="." method="_on_closeBtn_up"]
+[connection signal="button_up" from="DisplayBG/PurchaseNftBtn" to="." method="_on_PurchaseNftBtn_up"]

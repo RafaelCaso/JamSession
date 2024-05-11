@@ -1,0 +1,200 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/img/005MusicStand.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/005SheetMusic_DogEar_Metal.png" type="Texture" id=2]
+[ext_resource path="res://src/GenreSelector.gd" type="Script" id=3]
+[ext_resource path="res://assets/img/005SheetMusic_DogEar_Pop.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/005SheetMusic_DogEar_Jazz.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/005PracticeRoom.png" type="Texture" id=6]
+[ext_resource path="res://src/MuteBtn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/img/005PracticeRoomExit.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/006MMClick.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/006MMHover.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/006MMNormal.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/005SceneMenuHorizontal.png" type="Texture" id=12]
+[ext_resource path="res://src/util/MintNFTRequest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/fonts/Akira Expanded Demo.otf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/img/Group 10046.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/Group 9074.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/dym-round-gradient.png" type="Texture" id=17]
+[ext_resource path="res://assets/img/logo-transparent-dark.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 14 )
+
+[node name="GenreSelector" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="MusicStand" type="Sprite" parent="."]
+position = Vector2( 950, 689 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="MetalSheetMusic" type="Sprite" parent="MusicStand"]
+position = Vector2( 0, -278 )
+texture = ExtResource( 2 )
+
+[node name="JazzSheetMusic" type="Sprite" parent="MusicStand"]
+visible = false
+position = Vector2( 0, -278 )
+texture = ExtResource( 5 )
+
+[node name="PopSheetMusic" type="Sprite" parent="MusicStand"]
+visible = false
+position = Vector2( 0, -278 )
+texture = ExtResource( 4 )
+
+[node name="TurnPageBtn" type="TextureButton" parent="."]
+margin_left = 951.0
+margin_top = 479.0
+margin_right = 1038.0
+margin_bottom = 620.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LearnBtn" type="Button" parent="."]
+visible = false
+margin_left = 1307.0
+margin_top = 779.0
+margin_right = 1557.0
+margin_bottom = 901.0
+text = "Purchase NFT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instrument" type="Sprite" parent="."]
+position = Vector2( 706, 725 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="ExitBtn" type="TextureButton" parent="."]
+margin_left = 161.0
+margin_top = 333.0
+margin_right = 459.0
+margin_bottom = 792.0
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MetaMaskConnectBtn" type="TextureButton" parent="."]
+margin_left = 1850.0
+margin_top = 7.0
+margin_right = 1975.0
+margin_bottom = 132.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UserPrompt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 409.5 )
+scale = Vector2( 3, 4.87 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="UserPrompt"]
+margin_left = -93.0
+margin_top = -42.0
+margin_right = 93.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.988235, 0, 0.152941, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBtn" type="TextureButton" parent="UserPrompt"]
+margin_left = -98.0
+margin_top = -48.0
+margin_right = 98.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MintNFTRequest" parent="." instance=ExtResource( 13 )]
+
+[node name="ImgRequest" type="HTTPRequest" parent="."]
+
+[node name="AudioRequest" type="HTTPRequest" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="MuteBtn" parent="." instance=ExtResource( 7 )]
+margin_left = 682.0
+margin_top = 938.0
+margin_right = 727.0
+margin_bottom = 966.0
+
+[node name="PurchaseNFTBtn" type="TextureButton" parent="."]
+margin_left = 1585.0
+margin_top = 818.0
+margin_right = 1835.0
+margin_bottom = 1040.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PurchaseNFTBtn"]
+margin_left = 42.0
+margin_top = 91.0
+margin_right = 215.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 2 )
+text = "Purchase NFT"
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 310, 200 )
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+texture = ExtResource( 18 )
+
+[node name="YesBtn" type="Button" parent="."]
+visible = false
+margin_left = 807.0
+margin_top = 556.0
+margin_right = 913.0
+margin_bottom = 601.0
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoBtn" type="Button" parent="."]
+visible = false
+margin_left = 1001.0
+margin_top = 556.0
+margin_right = 1107.0
+margin_bottom = 601.0
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="TurnPageBtn" to="." method="_on_TurnPageBtn_up"]
+[connection signal="button_up" from="ExitBtn" to="." method="_on_ExitBtn_button_up"]
+[connection signal="button_up" from="MetaMaskConnectBtn" to="." method="_on_MetaMaskConnectBtn_up"]
+[connection signal="button_up" from="PurchaseNFTBtn" to="." method="_on_PurchaseNFTBtn_up"]
+[connection signal="button_up" from="YesBtn" to="." method="_on_YesBtn_button_up"]
+[connection signal="button_up" from="NoBtn" to="." method="_on_NoBtn_button_up"]

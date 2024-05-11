@@ -1,0 +1,244 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/img/01Stage-02.png" type="Texture" id=1]
+[ext_resource path="res://src/stages/StageLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/stages/SpeakerBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/stages/SpeakerBox2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/stages/StripLights.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/util/NFTRequest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/stages/StageEffect01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/stages/FloodLight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/stages/Stage2.gd" type="Script" id=9]
+[ext_resource path="res://src/stages/warpEffect.gd" type="Script" id=11]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float max_blend : hint_range(0,1) = 0.5;
+uniform float rotation_offset = 0;
+uniform float intensity : hint_range(0, 10);
+uniform bool invert = false;
+uniform vec2 rel_rect_size = vec2(1024, 600);
+
+float distFromCen(vec2 p) {
+	return distance(p, vec2(0.5));
+}
+//rotates by angle radians
+vec2 rotate(vec2 p, float angle){
+	return vec2(cos(angle)*p.x-sin(angle)*p.y, sin(angle)*p.x + cos(angle)*p.y);
+	}
+
+void fragment() {
+	vec4 c = COLOR;
+	
+	float distMod = invert ? distFromCen(UV) : 0.5 - distFromCen(UV);
+	float angle = intensity * distMod * 6.28318 + rotation_offset;
+	vec2 newp = rotate(UV-vec2(0.5), angle) + vec2(0.5);
+	vec2 disp = (newp - UV) * rel_rect_size * SCREEN_PIXEL_SIZE;
+	disp.y = -disp.y; // for some reason UV and SCEEN_UV are inveresed
+	COLOR = mix(texture(SCREEN_TEXTURE, SCREEN_UV + disp), c, max_blend * 2.0 * (0.5-distFromCen(UV)));
+	//COLOR = c;
+	//Doesn'[t apply effect outside of circle]
+	if (distFromCen(UV) > 0.5) {
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/max_blend = 0.0
+shader_param/rotation_offset = 0.0
+shader_param/intensity = 2.352
+shader_param/invert = false
+shader_param/rel_rect_size = Vector2( 1024, 600 )
+
+[node name="Stage" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.278431, 0.439216, 0.443137, 1 )
+
+[node name="SpeakerBox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 148, 773 )
+
+[node name="SpeakerBox2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1774, 775 )
+
+[node name="StageLights" type="Node2D" parent="."]
+
+[node name="StageLight" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 118, 97 )
+
+[node name="StageLight2" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 277, 98 )
+
+[node name="StageLight3" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 425, 96 )
+
+[node name="StageLight4" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 584, 97 )
+
+[node name="StageLight5" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 769, 97 )
+
+[node name="StageLight6" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 961, 95 )
+
+[node name="StageLight7" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1154, 98 )
+
+[node name="StageLight8" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1337, 99 )
+
+[node name="StageLight9" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1494, 99 )
+
+[node name="StageLight10" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1645, 97 )
+
+[node name="StageLight11" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1801, 98 )
+
+[node name="StageLight12" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1566, 181 )
+
+[node name="StageLight13" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1601, 181 )
+
+[node name="StageLight14" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1636, 181 )
+
+[node name="StageLight15" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1672, 182 )
+
+[node name="StageLight16" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1565, 219 )
+
+[node name="StageLight17" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1603, 218 )
+
+[node name="StageLight18" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1638, 217 )
+
+[node name="StageLight19" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 1671, 217 )
+
+[node name="StageLight20" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 246, 183 )
+
+[node name="StageLight21" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 283, 181 )
+
+[node name="StageLight22" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 316, 183 )
+
+[node name="StageLight23" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 352, 182 )
+
+[node name="StageLight24" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 246, 219 )
+
+[node name="StageLight25" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 283, 218 )
+
+[node name="StageLight26" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 317, 217 )
+
+[node name="StageLight27" parent="StageLights" instance=ExtResource( 2 )]
+position = Vector2( 353, 218 )
+
+[node name="StripLights" parent="." instance=ExtResource( 5 )]
+position = Vector2( 946, 925 )
+scale = Vector2( 2.5, 1 )
+
+[node name="StripLights2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 950, 968 )
+scale = Vector2( 0.8, 1 )
+
+[node name="StripLights3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 950, 1011 )
+scale = Vector2( 0.8, 1 )
+
+[node name="StripLights4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 952, 1063 )
+scale = Vector2( 0.8, 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 679, 338 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( 955, 285 )
+
+[node name="Position2D3" type="Position2D" parent="."]
+position = Vector2( 1204, 350 )
+
+[node name="Position2D4" type="Position2D" parent="."]
+position = Vector2( 957, 450 )
+
+[node name="StageEffect01" parent="." instance=ExtResource( 7 )]
+position = Vector2( 961, 434 )
+emission_sphere_radius = 600.0
+scale_amount = 0.5
+
+[node name="FloodLight" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 644, 961 )
+
+[node name="FloodLight2" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 1209, 968 )
+rotation = -0.174533
+
+[node name="FloodLight3" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 948, 977 )
+rotation = 0.0872665
+
+[node name="NFTRequest2" parent="." instance=ExtResource( 6 )]
+img_cid = "QmVSYfkGZ2HPhGiPEhZP4gbRDgUtSruzxv7JH9jeheeT5b"
+audio_cid = "QmTR15oP8pNSoNKBczyA9nQhXFErtrLKCGa2qfW5AGi7xh"
+coords = Vector2( 1204, 350 )
+instrument = "bass"
+genre = "metal"
+
+[node name="NFTRequest3" parent="." instance=ExtResource( 6 )]
+img_cid = "QmTUAoZkYV5ifkoEgREpfYWGv7GvHk6QTdcj1QcCZxdSyW"
+audio_cid = "QmX6BdzwJCsa5t2JSSD6UKr5KiVct7EmA4m3kK8HNqotkG"
+coords = Vector2( 955, 285 )
+instrument = "drums"
+genre = "metal"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 1699.0
+margin_top = 933.0
+margin_right = 1918.0
+margin_bottom = 1078.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NFTRequest4" parent="." instance=ExtResource( 6 )]
+img_cid = "QmP5x2Wea272WqkEfYognshJkvGqwBYBUKuNSNNFKei4gn"
+audio_cid = "QmV5UqPtRARc7jSrXUVwHB7s9ZnfKq1jr31vbRAfmediRw"
+coords = Vector2( 679, 338 )
+instrument = "piano"
+genre = "jazz"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_left = 561.0
+margin_top = 178.0
+margin_right = 1360.0
+margin_bottom = 518.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_up"]
+
+[editable path="StripLights"]

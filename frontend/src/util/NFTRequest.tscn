@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/util/ImageRequest.gd" type="Script" id=1]
+[ext_resource path="res://src/util/AudioRequest.gd" type="Script" id=2]
+[ext_resource path="res://src/util/NFTRequest.gd" type="Script" id=3]
+[ext_resource path="res://src/MuteBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/stages/FloodLight.tscn" type="PackedScene" id=5]
+
+[node name="NFTRequest" type="Node"]
+script = ExtResource( 3 )
+
+[node name="AudioRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 2 )
+
+[node name="Image" type="Node" parent="."]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ImageRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 1 )
+
+[node name="MuteBtn" parent="ImageRequest" instance=ExtResource( 4 )]
+margin_right = 45.0
+margin_bottom = 28.0
+
+[node name="FloodLight" parent="ImageRequest" instance=ExtResource( 5 )]

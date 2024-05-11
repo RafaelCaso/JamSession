@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/img/02Floodlight.png" type="Texture" id=1]
+[ext_resource path="res://src/stages/FloodLight.gd" type="Script" id=2]
+
+[node name="FloodLight" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 5, -465 )
+texture = ExtResource( 1 )

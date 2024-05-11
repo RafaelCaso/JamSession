@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MetalGuitar1.ogg-4f9f7540148b569a6570a50eb241fdbb.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/MetalGuitar1.ogg"
+dest_files=[ "res://.import/MetalGuitar1.ogg-4f9f7540148b569a6570a50eb241fdbb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

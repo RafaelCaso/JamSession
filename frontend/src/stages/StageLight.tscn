@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/img/light.png" type="Texture" id=1]
+
+[node name="StageLight" type="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 4.0
+color = Color( 0.839216, 0.247059, 0.760784, 1 )
+energy = 0.42
+range_height = 1277.7
+shadow_enabled = true
+shadow_gradient_length = 7.7

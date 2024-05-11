@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MetalDrums2.ogg-b666d41e1e6e52331f634fd75dbf6a19.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/MetalDrums2.ogg"
+dest_files=[ "res://.import/MetalDrums2.ogg-b666d41e1e6e52331f634fd75dbf6a19.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
