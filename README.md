@@ -60,7 +60,8 @@ Using the JAM token, NFTs can be purchased that contain an audio and image CID i
 
 
 ### Try it yourself
-1. git clone <repo-url>
+
+1. git clone https://github.com/RafaelCaso/JamSession
 
 2. Host IPFS node locally http://127.0.0.1:8080
 
@@ -73,10 +74,3 @@ truffle migrate --network development
 
 6. Host HTML5 locally
 
----
-
-
-
-
-~About the creator:
-Adrian has been a musician since he was 8 years old. Beginning with piano, he was fortunate to receive lessons from Mr. White in Columbus, Ohio, who introduced him to jazz. Adrian picked up the guitar when he was 14, and bass shortly after, and quickly started the obligatory highschool rock and roll band. In College, he studied Music Theory at The Ohio State University where he was again fortunate to work with local musicians Michael Zarilli, Dominic Carioti, and Boki who all contributed greatly to his growth as a musician. After several years as a working jazz musician, Adrian went on to other things in his life but still retains his love of music, particularly the piano.~
