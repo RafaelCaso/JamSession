@@ -29,10 +29,10 @@ This world offers two main use cases
 Number 2 is more central in my eyes, but by combining these two ideas, we can emulate real life in a much more meaningful way, where many people will be 'tourists' enjoying the local scene while contributing 
 to people who live and breathe music every day of their lives.
 
-![inspiration](blob/main/backend/assets/Metaverse.png?raw=true)
-![inspiration](blob/main/backend/assets/JazzOutside.png?raw=true) 
-![inspiration](blob/main/backend/assets/JazzInside.png?raw=true) 
-![inspiration](blob/main/backend/assets/ArenaRock.png?raw=true) 
+![inspiration](/blob/main/backend/assets/Metaverse.png?raw=true)
+![inspiration](/blob/main/backend/assets/JazzOutside.png?raw=true) 
+![inspiration](/blob/main/backend/assets/JazzInside.png?raw=true) 
+![inspiration](/blob/main/backend/assets/ArenaRock.png?raw=true) 
 
 
 #### Challenges:
