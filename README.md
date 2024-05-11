@@ -1,5 +1,5 @@
 # Jam Session
-> an unrehearsed or improvised jazz or rock perfomance (Collins English Dictionary)
+> an unrehearsed or improvised jazz or rock performance (Collins English Dictionary)
 ---
 
 ### What is it?
@@ -21,7 +21,7 @@ This is where I see the greatest potential for something like Jam Session, a pro
 # Vision / The Product:
 Metaverse set in a fictional city where users can explore different musical venues and listen to submissions.
 Different neighborhoods in the city represent musical genres and will have stores that sell appropriately stylized instruments and offer lessons in that genre.
-Each neighborhood will be heavily stylized for that genre and will be loaded with easter eggs for the users to find. These should make the user feel like they're in-the-know for the particular neighborhood.
+Each neighborhood will be heavily stylized for that genre and will be loaded with Easter eggs for the users to find. These should make the user feel like they're in-the-know for the particular neighborhood.
 This world offers two main use cases 
 1. a videogame style world where people can explore at their leisure while listening to music and enjoying the sights.
 2. provide a way for real-world musicians across the planet to collaborate and create something completely unique, a digital jam session.
